@@ -37,3 +37,31 @@ divText.textContent = 'ME TOO!';
 div.appendChild(divText);
 
 container.appendChild(div);
+
+// add an event on a DOM object
+const btn2 = document.querySelector('#btn2');
+btn2.onclick = () => alert('Hello World');
+
+// add an event listener to a node
+const btn3 = document.querySelector('#btn3');
+btn3.addEventListener('click', () => {
+  alert('Hello World');
+});
+
+// use a named function with an event listener
+const myAlert = (e) => {
+  alert('Hello World');
+  console.log(e.target);
+  e.target.setAttribute('style', 'background: yellow; color: green;');
+};
+
+const btn4 = document.querySelector('#btn4');
+btn4.setAttribute('style', 'color: green;');
+btn4.addEventListener('click', myAlert);
+
+// use a nodelist to add an event listener to all buttons
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((btn) => {
+  btn.addEventListener('click', myAlert);
+});
